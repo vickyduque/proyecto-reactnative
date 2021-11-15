@@ -18,7 +18,7 @@ export default class Register extends Component {
             this.props.handleRegister(this.state.email, this.state.password, this.state.username)
         }
         else {
-            console.log("Completar los campos!")
+            alert("Completar todos los campos!")
         }
     }
 
@@ -30,20 +30,20 @@ export default class Register extends Component {
                 <TextInput
                     style={styles.field}
                     keyboardType="email-address"
-                    placeholder="email"
+                    placeholder="Email"
                     onChangeText={text => this.setState({ email: text })}
                 />
 
                 <TextInput
                     style={styles.field}
                     keyboardType="default"
-                    placeholder="username"
+                    placeholder="Usuario"
                     onChangeText={text => this.setState({ username: text })}
                 />
                 <TextInput
                     style={styles.field}
                     keyboardType='default'
-                    placeholder="password"
+                    placeholder="Contraseña"
                     secureTextEntry={true}
                     onChangeText={text => this.setState({ password: text })}
                 />

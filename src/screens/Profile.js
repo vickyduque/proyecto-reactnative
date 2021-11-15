@@ -11,6 +11,7 @@ export default class Profile extends Component {
     };
   }
 
+  //Posteos
   componentDidMount() {
     db.collection("posts")
       .where("owner", "==", auth.currentUser.displayName)
@@ -32,15 +33,18 @@ export default class Profile extends Component {
   }
 
 // Metodo para borrar publicacion
-handleRemove(){
-
+handleRemove(item){
+  db.collection("posts").doc(item.id).delete().then(() => {
+      alert('Tu posteo se borrará')
+  }).catch((error) => {
+      alert("Error: ", error);
+  });
 }
 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.titulo}> Mi Perfil</Text>
-        <Text style={styles.text1}> Usuario: {auth.currentUser.displayName}</Text>
+        <Text style={styles.titulo}> Mi Perfil: {auth.currentUser.displayName} </Text>
         <Text style={styles.text1}> E-mail: {auth.currentUser.email}</Text>
         <Text style={styles.text1}> Fecha del último ingreso: {auth.currentUser.metadata.lastSignInTime} </Text>
         <Text style={styles.text1}> Número de publicaciones: {this.state.posts.length}</Text>{" "}
@@ -51,9 +55,10 @@ handleRemove(){
           renderItem={({ item }) => 
           <React.Fragment>
           <Post item={item}></Post>
+           {/* Borrar posteos */}
           <TouchableOpacity
-          style={styles.button1}
-          onPress={() => this.props.handleRemove()}>
+            style={styles.button1}
+            onPress={() => this.handleRemove(item)}>
 
           <Text style={styles.texto}> Borrar post </Text>
 
@@ -61,6 +66,7 @@ handleRemove(){
         </React.Fragment>
         }
         />
+           {/* Cerrar Sesión */}
         <TouchableOpacity
           style={styles.button}
           onPress={() => this.props.handleLogout()}
@@ -81,7 +87,7 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     button: {
-        height: 58,
+        height: 56,
         backgroundColor: "#d4e5e7",
         borderRadius: 10,
         width: 90,

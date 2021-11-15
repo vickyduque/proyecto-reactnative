@@ -91,21 +91,21 @@ export default class Menu extends Component{
                        {this.state.loggedIn === true ? 
 
                         <React.Fragment>
-                        <Drawer.Screen name = "Home">
+                        <Drawer.Screen name = "Inicio">
                             {props => <Home {...props} />}
                         </Drawer.Screen>
 
-                        <Drawer.Screen name= "CreatePost"> 
+                        <Drawer.Screen name= "Crear Posteo"> 
                         {props => <CreatePost {...props} /> }
 
                         </Drawer.Screen>
 
-                        <Drawer.Screen name= "Profile"> 
+                        <Drawer.Screen name= "Tu Perfil"> 
                         {props => <Profile {...props} handleLogout={()=>this.handleLogout()}/> }
 
                         </Drawer.Screen>
 
-                        <Drawer.Screen name= "Finder"> 
+                        <Drawer.Screen name= "Buscador"> 
                         {props => <Finder {...props} /> }
 
                         </Drawer.Screen>
@@ -114,11 +114,11 @@ export default class Menu extends Component{
                         : 
                         <React.Fragment>
 
-                            <Drawer.Screen name="Login">
+                            <Drawer.Screen name="Iniciar sesión">
                                 {props => <Login {...props} handleLogin={(email, password)=>this.handleLogin(email, password)}/>}
                             </Drawer.Screen>  
 
-                            <Drawer.Screen name = "Register">
+                            <Drawer.Screen name = "Registrarse">
                                 {props => <Register {...props} handleRegister={(email, password, username)=>this.handleRegister(email, password, username) } error= {this.state.error} />}
                             </Drawer.Screen>
 
