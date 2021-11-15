@@ -36,7 +36,7 @@ export default class Home extends Component {
         return(
             <React.Fragment>
                 
-                <FlatList
+                <FlatList 
                 data = {this.state.posts}
                 keyExtractor = {post => post.id.toString()}  
                 renderItem = { ({item}) => {
@@ -54,13 +54,6 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         backgroundColor:"#f3f3f3"
-    },
-    field: {
-        width: '80%',
-        backgroundColor: "#09009B",
-        color: 'black',
-        padding: 10,
-        marginVertical: 10
     },
     button: {
         width: '30%',
@@ -84,6 +77,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: "sans-serif",
         fontWeight:'bold',
-
-    }
+    },
 })

@@ -66,7 +66,7 @@ render() {
             <TextInput
                     style={styles.field}
                     keyboardType= "default"
-                    placeholder="What are you thinking?"
+                    placeholder="Escribí un pie de foto :)"
                     multiline={true}
                     numberOfLines = {4}
                     onChangeText={text => this.setState({ comment: text })}

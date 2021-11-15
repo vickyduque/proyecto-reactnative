@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     },
     preview: {
         width: '100%',
-        height: 200
+        height: 580
     },
     text1: {
         color: '#2b74c8',
@@ -136,5 +136,15 @@ const styles = StyleSheet.create({
         width: 150,
         marginTop: 10,
     }, 
-   
+    text: {
+        color: '#2b74c8',
+        fontSize: 24,
+        textAlign: 'center',
+        fontFamily: "sans-serif",
+        fontWeight:'bold',
+        backgroundColor: "#d4e5e7",
+        borderRadius: 10,
+        width: 150,
+        marginTop: 10,
+    }, 
 })

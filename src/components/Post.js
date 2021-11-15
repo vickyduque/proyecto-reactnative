@@ -69,10 +69,10 @@ render (){
              <Image style={styles.image} 
               source = {{uri: this.props.item.data.photo }}
              />      
-             <Text> {this.props.item.data.owner}  </Text>
-             <Text> {this.props.item.data.description} </Text>
-              <Text> {this.props.item.data.createdAt}  </Text>
-              <Text> Likes: {this.state.likes} </Text>
+             <Text style = {styles.texto1}> {this.props.item.data.owner}  </Text>
+             <Text style = {styles.texto}> {this.props.item.data.description} </Text>
+              <Text style = {styles.texto}>  {this.props.item.data.createdAt}  </Text>
+              <Text style = {styles.texto}> Likes: {this.state.likes} </Text>
 
             {
                ! this.state.liked ?
@@ -95,7 +95,8 @@ render (){
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: 20
     },
     button: {
         width: '30%',
@@ -129,5 +130,18 @@ const styles = StyleSheet.create({
     image: {
         height: 200,
         width: 200
+    },
+    texto:{
+        color: 'black',
+        fontSize: 15,
+        textAlign: 'center',
+        fontFamily: "sans-serif",
+    },
+    texto1: {
+        color: 'black',
+        fontSize: 15,
+        textAlign: 'center',
+        fontFamily: "sans-serif",
+        fontWeight: "bold"
     }
 })

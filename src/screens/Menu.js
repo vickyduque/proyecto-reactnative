@@ -92,7 +92,7 @@ export default class Menu extends Component{
 
                         <React.Fragment>
                         <Drawer.Screen name = "Home">
-                            {props => <Home {...props} handleLogout={()=>this.handleLogout()}/>}
+                            {props => <Home {...props} />}
                         </Drawer.Screen>
 
                         <Drawer.Screen name= "CreatePost"> 
@@ -101,7 +101,7 @@ export default class Menu extends Component{
                         </Drawer.Screen>
 
                         <Drawer.Screen name= "Profile"> 
-                        {props => <Profile {...props} /> }
+                        {props => <Profile {...props} handleLogout={()=>this.handleLogout()}/> }
 
                         </Drawer.Screen>
 
