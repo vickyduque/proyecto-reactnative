@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, TextInput, TouchableOpacity, View, StyleSheet} from "react-native";
+import { Text, TextInput, TouchableOpacity, View, StyleSheet, Image} from "react-native";
 import { auth, db } from "../firebase/config";
 import MyCamera from '../components/MyCamera';
 
@@ -20,7 +20,7 @@ handlePost(){
         owner: auth.currentUser.displayName, //DisplayName es para el username
         description: this.state.comment,
         email: auth.currentUser.email,
-        createdAt: Date.now(),
+        createdAt: new Date().toLocaleString(),
         likes: [],      //array de likes vacio
         comments: [],
         photo: this.state.photo //Esto me guarda la url de la foto.
@@ -41,7 +41,7 @@ handlePost(){
 }
 
 // Metodo para guardar la foto y mostrarla.
-guardarFoto(){
+guardarFoto(url){
     this.setState({
         photo: url, //Url que me permite acceder a la foto
         showCamera: false

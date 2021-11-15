@@ -34,8 +34,7 @@ export default class Home extends Component {
     render(){
         console.log(this.state.posts)
         return(
-            <View>
-                <Text>  </Text>
+            <React.Fragment>
                 
                 <FlatList
                 data = {this.state.posts}
@@ -43,15 +42,9 @@ export default class Home extends Component {
                 renderItem = { ({item}) => {
                     return <Post item = {item}> </Post> }
                     }
-                 /> 
+                 />
 
-                <TouchableOpacity style = {styles.button} onPress={() => this.props.handleLogout()}>
-                    <Text style = {styles.text1}> Cerrar Sesión </Text>
-                </TouchableOpacity>
-                
-                
-
-            </View>
+            </React.Fragment>
         )
     }
 }

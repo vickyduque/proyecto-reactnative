@@ -3,6 +3,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Login from './Login';
 import Register from './Register';
+import Profile from './Profile';
+import Finder from './Finder';
 import Home from './Home';
 import { auth } from '../firebase/config';
 import CreatePost from './CreatePost';
@@ -93,9 +95,18 @@ export default class Menu extends Component{
                             {props => <Home {...props} handleLogout={()=>this.handleLogout()}/>}
                         </Drawer.Screen>
 
-
                         <Drawer.Screen name= "CreatePost"> 
                         {props => <CreatePost {...props} /> }
+
+                        </Drawer.Screen>
+
+                        <Drawer.Screen name= "Profile"> 
+                        {props => <Profile {...props} /> }
+
+                        </Drawer.Screen>
+
+                        <Drawer.Screen name= "Finder"> 
+                        {props => <Finder {...props} /> }
 
                         </Drawer.Screen>
                         

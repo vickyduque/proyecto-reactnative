@@ -1,6 +1,6 @@
 import {Camera} from "expo-camera";
 import React from "react";
-import {View, Text, StyleSheet, TouchableOpacity} from "react-native"
+import {View, Text, StyleSheet, TouchableOpacity, Image} from "react-native"
 import { storage } from "../firebase/config";
 
 
@@ -29,6 +29,7 @@ export default class MyCamera extends React.Component {
         if(!this.camera) return ;
         this.camera.takePictureAsync()
         .then(photo => {
+            console.log(photo)
             this.setState({
                 photo: photo.uri //Es una uri interna temporal de la foto. Tiene todo el contenido de la foto.
             })
@@ -119,6 +120,10 @@ const styles = StyleSheet.create({
     camera: {
         flex: 1,
         width: "100%",
+    },
+    preview: {
+        width: '100%',
+        height: 200
     },
     text1: {
         color: '#2b74c8',

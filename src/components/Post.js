@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {View, Text, StyleSheet, TouchableOpacity, Modal} from "react-native"
+import {View, Text, StyleSheet, Image, TouchableOpacity, Modal} from "react-native"
 import { auth, db } from "../firebase/config";
 import firebase from "firebase";
 
@@ -9,7 +9,7 @@ export default class Post extends Component {
         this.state = {
             likes: 0,
             liked: false, //Valor inicial
-            showModal: false  //al principio no se ve. 
+            showModal: false  //al principio no se ve.           
         }
     }
 
@@ -65,7 +65,10 @@ render (){
     //Usamos un if ternario. Si no esta likeado (!), podes likear. Si esta likeado, podes sacar el like. 
     return (
         <View style={styles.container}> 
-             {/*Renderiza el posteo: */}        
+             {/*Renderiza el posteo: */}  
+             <Image style={styles.image} 
+              source = {{uri: this.props.item.data.photo }}
+             />      
              <Text> {this.props.item.data.owner}  </Text>
              <Text> {this.props.item.data.description} </Text>
               <Text> {this.props.item.data.createdAt}  </Text>
@@ -122,5 +125,9 @@ const styles = StyleSheet.create({
     },
     modalView: {
         alignItems: 'center' 
+    }, 
+    image: {
+        height: 200,
+        width: 200
     }
 })
