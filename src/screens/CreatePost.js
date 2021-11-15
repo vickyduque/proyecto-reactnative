@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Text, TextInput, TouchableOpacity, View, StyleSheet} from "react-native";
 import { auth, db } from "../firebase/config";
+import MyCamera from '../components/MyCamera';
 
 
 export default class CreatePost extends Component {
@@ -8,6 +9,8 @@ export default class CreatePost extends Component {
         super(props);
         this.state = {
             comment: "",   //Al principio la descripcion esta vacia. 
+            showCamera: true,
+            photo: "",
         }
     }
 
@@ -20,7 +23,7 @@ handlePost(){
         createdAt: Date.now(),
         likes: [],      //array de likes vacio
         comments: [],
-
+        photo: this.state.photo //Esto me guarda la url de la foto.
     })
     .then(response => {
         console.log(response);
@@ -37,10 +40,28 @@ handlePost(){
     })
 }
 
+// Metodo para guardar la foto y mostrarla.
+guardarFoto(){
+    this.setState({
+        photo: url, //Url que me permite acceder a la foto
+        showCamera: false
+    })
+}
 
 render() {
     return (
+        <>
+          {this.state.showCamera ?
+          <MyCamera savePhoto = {(url) => this.guardarFoto(url)}/>
+          :
+          <>
+        
         <View style={styles.container}>
+            
+        <Image
+           source= { {uri: this.state.photo} }
+           style = {styles.imagen}
+        />
           
             <TextInput
                     style={styles.field}
@@ -52,11 +73,13 @@ render() {
                     value = {this.state.comment}  //para que se vaya actualizando el valor del comment. 
 
                 />
-         <TouchableOpacity style = {styles.button} onPress={() => this.handlePost()}>
+                <TouchableOpacity style = {styles.button} onPress={() => this.handlePost()}>
                     <Text style = {styles.text1}>  Post  </Text>
                 </TouchableOpacity>
             </View>
-        
+            </>
+             }
+             </>
      )
     }   
 }

@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         marginTop: 10,
         borderBottomColor: '2b74c8',
         borderBottomWidth: StyleSheet.hairlineWidth,
-        marginLeft: 430,
+        marginLeft: 377,
         marginTop: 50
     },
     text: {
