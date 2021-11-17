@@ -12,7 +12,7 @@ export default class Post extends Component {
   } //Constructor
 
   onComment() {
-    const posteoActualizar = db.collection("posts").doc(this.props.postId);
+    const posteoActualizar = db.collection("posts").doc(this.props.idPost);
 
     if(this.state.comment == ""){
         alert('Por favor, escribí un comentario.')
@@ -26,35 +26,15 @@ export default class Post extends Component {
           }),
         })
         .then(() => {
+            this.props.show()
           this.setState({
             comment: "",
           });
         });
     } // else
-  } // onComment
-
-  deleteComment(){
-
-    console.log(this.props.comments)
-
-    const posteoActualizar = db.collection("posts").doc(this.props.idPost);
-
-    posteoActualizar
-      .update({
-        comments: firebase.firestore.FieldValue.arrayRemove({
-          id: this.props.comments.id,
-          email: this.props.comments.email,
-          owner: this.props.comments.owner,
-          comment: this.props.comments.comment,
-        }),
-      })
-      .then(() => {
-        this.setState({
-          comment: ""
-        });
-      });
-   
-  } // onComment
+  } 
+  
+  // onComment
 
   render() {
     return (
@@ -68,14 +48,6 @@ export default class Post extends Component {
                 <Text>
                   {item.owner}: {item.comment}
                 </Text>
-                <TouchableOpacity
-                  style={styles.closeModal}
-                  onPress={() => {
-                    this.deleteComment();
-                  }}
-                >
-                  <Text style={styles.modalText}>X</Text>
-                </TouchableOpacity>
               </>
             )}
           /> ) : (

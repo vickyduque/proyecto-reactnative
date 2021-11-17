@@ -96,9 +96,13 @@ render (){
              </TouchableOpacity>
             }
             {this.state.showModal?(
+                <>
+                <TouchableOpacity onPress={()=>{this.closeModal()}}>
+                    <Text>Less comments</Text>
+                </TouchableOpacity>
             <Comments idPost = {this.props.item.id} comments = {this.props.item.data.comments}
-            close= {()=>this.closeModal()}
-            /> ):(
+            show = {()=>this.showModal()}
+            /> </>):(
                 <TouchableOpacity onPress={()=>{this.showModal()}}>
                     <Text>Show comments</Text>
                 </TouchableOpacity>
