@@ -44,10 +44,11 @@ handleRemove(item){
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.titulo}> Mi Perfil: {auth.currentUser.displayName} </Text>
-        <Text style={styles.text1}> E-mail: {auth.currentUser.email}</Text>
-        <Text style={styles.text1}> Fecha del último ingreso: {auth.currentUser.metadata.lastSignInTime} </Text>
-        <Text style={styles.text1}> Número de publicaciones: {this.state.posts.length}</Text>{" "}
+        <Text style={styles.textbold}>{auth.currentUser.displayName} </Text>
+        <Text style={styles.text}> Mis datos: </Text>
+        <Text style={styles.text2}> E-mail: </Text><Text style={styles.text1}>{auth.currentUser.email}</Text>
+        <Text style={styles.text2}> Fecha del último ingreso: </Text><Text style={styles.text1}>{auth.currentUser.metadata.lastSignInTime} </Text>
+        <Text style={styles.text2}> Número de publicaciones: </Text><Text style={styles.text1}>{this.state.posts.length}</Text>{" "}
         {/* Mostrar posteos */}
         <FlatList
           data={this.state.posts}
@@ -120,14 +121,25 @@ const styles = StyleSheet.create({
         fontSize: 21,
         fontFamily: "sans-serif",
         fontWeight:'bold',
-        marginBottom: 50,
-
     },
     text1:{
         color: 'black',
         fontSize: 15,
         textAlign: 'center',
         fontFamily: "sans-serif",
+    },
+    text2: {
+      color: '#2b74c8',
+      fontSize: 15,
+      fontFamily: "sans-serif",
+      fontWeight:'bold',
+  },
+    textbold:{
+      color: '#203edc',
+      fontSize: 40,
+      fontFamily: "sans-serif",
+      fontWeight:'bold',
+      textTransform: 'capitalize'
     },
     titulo: {
       color: '#2b74c8',

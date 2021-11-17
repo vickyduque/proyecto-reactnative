@@ -79,7 +79,7 @@ render (){
              <Image style={styles.image} 
               source = {{uri: this.props.item.data.photo }}
              />      
-             <Text style = {styles.texto1}> {this.props.item.data.owner}  </Text>
+             <Text style = {styles.textbold}> {this.props.item.data.owner}  </Text>
              <Text style = {styles.texto}> {this.props.item.data.description} </Text>
               <Text style = {styles.texto}>  {this.props.item.data.createdAt}  </Text>
               <Text style = {styles.texto}> Likes: {this.state.likes} </Text>
@@ -97,14 +97,14 @@ render (){
             }
             {this.state.showModal?(
                 <>
-                <TouchableOpacity onPress={()=>{this.closeModal()}}>
-                    <Text>Less comments</Text>
+                <TouchableOpacity style = {styles.button} onPress={()=>{this.closeModal()}}>
+                    <Text style = {styles.text1}>Ocultar comentarios</Text>
                 </TouchableOpacity>
             <Comments idPost = {this.props.item.id} comments = {this.props.item.data.comments}
             show = {()=>this.showModal()}
             /> </>):(
-                <TouchableOpacity onPress={()=>{this.showModal()}}>
-                    <Text>Show comments</Text>
+                <TouchableOpacity style = {styles.button} onPress={()=>{this.showModal()}}>
+                    <Text style = {styles.text1}>Mostrar comentarios</Text>
                 </TouchableOpacity>
             )}
         </View>
@@ -164,5 +164,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: "sans-serif",
         fontWeight: "bold"
-    }
+    },
+    textbold:{
+        color: '#203edc',
+        fontSize: 20,
+        fontFamily: "sans-serif",
+        fontWeight:'bold',
+        textTransform: 'capitalize'
+      },
 })
