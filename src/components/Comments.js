@@ -51,11 +51,11 @@ export default class Post extends Component {
               </>
             )}
           /> ) : (
-          <Text>Aún no hay comentarios.</Text>
+          <Text>Aún no hay comentarios. Sé el primero en opinar.</Text>
         )}
         <TextInput
           keyboardType="default"
-          placeholder="Comentario..."
+          placeholder="Dejá un comentario"
           multiline={true}
           numberOfLines={2}
           onChangeText={(text) => this.setState({ comment: text })}
@@ -96,7 +96,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   btn: {
-    backgroundColor: "red",
+    backgroundColor: '#2b74c8',
+
     padding: 7,
     marginTop: 5,
     borderRadius: 15,
@@ -114,7 +115,7 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   modalView: {
-    backgroundColor: "orange",
+    backgroundColor: "#d4e5e7",
     borderRadius: 10,
   },
   modal: {

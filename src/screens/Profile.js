@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Text, View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 import { auth, db } from "../firebase/config";
 import Post from "../components/Post";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+
 
 export default class Profile extends Component {
   constructor(props) {
@@ -57,19 +59,19 @@ handleRemove(item){
           <React.Fragment>
           <Post item={item}></Post>
            {/* Borrar posteos */}
-          <TouchableOpacity
-            style={styles.button1}
-            onPress={() => this.handleRemove(item)}>
 
-          <Text style={styles.texto}> Borrar post </Text>
-
+        <TouchableOpacity style={styles.button} onPress={() => this.handleRemove(item)}>
+           <FontAwesome name='trash' size={30} color='#fff' />
+            <Text style={styles.text3}>Borrar post	</Text>
         </TouchableOpacity>
+
+
         </React.Fragment>
         }
         />
            {/* Cerrar Sesión */}
         <TouchableOpacity
-          style={styles.button}
+          style={styles.button2}
           onPress={() => this.props.handleLogout()}
         >
           <Text style={styles.text}> Cerrar sesión </Text>
@@ -88,16 +90,14 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
     button: {
-        height: 56,
-        backgroundColor: "#d4e5e7",
-        borderRadius: 10,
-        width: 90,
-        marginBottom: 30,
-        borderBottomColor: '2b74c8',
-        borderBottomWidth: StyleSheet.hairlineWidth,
-        marginTop: 80,
-        textAlign: "center"
-    },
+      backgroundColor: "#d4e5e7",
+      borderRadius: 10,
+      width: 130,
+      textAlign: "center",
+      marginLeft: "auto",
+      marginRight: "auto"
+      
+  },
     button1: {
       height: 33,
       backgroundColor: "#d4e5e7",
@@ -105,6 +105,15 @@ const styles = StyleSheet.create({
       width: 70,
       marginBottom: 10,
       marginTop: 10,
+      textAlign: "center",
+    },
+    button2: {
+      backgroundColor: "#d4e5e7",
+      borderRadius: 10,
+      width: 130,
+      marginLeft: "auto",
+      marginRight: "auto",
+      marginTop: 40,
       textAlign: "center",
     },
     texto: {
@@ -134,6 +143,13 @@ const styles = StyleSheet.create({
       fontFamily: "sans-serif",
       fontWeight:'bold',
   },
+  text3: {
+    color: '#2b74c8',
+    fontSize: 16,
+    textAlign: 'center',
+    fontFamily: "sans-serif",
+    fontWeight:'bold',
+}, 
     textbold:{
       color: '#203edc',
       fontSize: 40,

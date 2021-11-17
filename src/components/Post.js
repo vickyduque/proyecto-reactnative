@@ -3,6 +3,8 @@ import {View, Text, StyleSheet, Image, TouchableOpacity, Modal} from "react-nati
 import { auth, db } from "../firebase/config";
 import firebase from "firebase";
 import Comments from "../components/Comments";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+
 
 export default class Post extends Component {
     constructor(props){
@@ -88,22 +90,26 @@ render (){
                ! this.state.liked ?
             
              <TouchableOpacity style = {styles.button} onPress={() => this.functionLike()}>
+                 <FontAwesome name='thumbs-up' size={30} color='#fff' />
                  <Text style = {styles.text1}> Like </Text>
              </TouchableOpacity>
             :
             <TouchableOpacity style = {styles.button} onPress={() => this.onDislike()}>
+                 <FontAwesome name='ban' size={30} color='#fff' />
                  <Text style = {styles.text1}> Quitar Like </Text>
              </TouchableOpacity>
             }
             {this.state.showModal?(
                 <>
                 <TouchableOpacity style = {styles.button} onPress={()=>{this.closeModal()}}>
+                <FontAwesome name='eye-slash' size={30} color='#fff' />
                     <Text style = {styles.text1}>Ocultar comentarios</Text>
                 </TouchableOpacity>
             <Comments idPost = {this.props.item.id} comments = {this.props.item.data.comments}
             show = {()=>this.showModal()}
             /> </>):(
                 <TouchableOpacity style = {styles.button} onPress={()=>{this.showModal()}}>
+                    <FontAwesome name='comment' size={30} color='#fff' />
                     <Text style = {styles.text1}>Mostrar comentarios</Text>
                 </TouchableOpacity>
             )}
