@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity, Modal} from "react-native"
 import { auth, db } from "../firebase/config";
 import firebase from "firebase";
+import Comments from "../components/Comments";
 
 export default class Post extends Component {
     constructor(props){
@@ -58,7 +59,16 @@ onDislike(){
         })
     })
 }
-
+showModal(){
+    this.setState({
+        showModal: true
+    })
+}
+closeModal(){
+    this.setState({
+        showModal: false
+    })
+}
 
 render (){
     console.log(this.props.item)
@@ -85,7 +95,14 @@ render (){
                  <Text style = {styles.text1}> Quitar Like </Text>
              </TouchableOpacity>
             }
-
+            {this.state.showModal?(
+            <Comments idPost = {this.props.item.id} comments = {this.props.item.data.comments}
+            close= {()=>this.closeModal()}
+            /> ):(
+                <TouchableOpacity onPress={()=>{this.showModal()}}>
+                    <Text>Show comments</Text>
+                </TouchableOpacity>
+            )}
         </View>
         )
     }
