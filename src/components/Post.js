@@ -61,11 +61,15 @@ onDislike(){
         })
     })
 }
+
+//Muestra el modal: Al hacer clic en ver comentarios, hay que setear la propiedad en true
 showModal(){
     this.setState({
         showModal: true
     })
 }
+
+//Cierra el modal
 closeModal(){
     this.setState({
         showModal: false
@@ -132,6 +136,7 @@ const styles = StyleSheet.create({
         width: 130,
         marginTop: 10,
         textAlign: "center",
+        marginBottom: 12
         
     },
     text: {

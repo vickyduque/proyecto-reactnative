@@ -9,7 +9,7 @@ export default class Post extends Component {
     this.state = {
       comment: "",
     };
-  } //Constructor
+  } 
 
   onComment() {
     const posteoActualizar = db.collection("posts").doc(this.props.idPost);
@@ -31,10 +31,10 @@ export default class Post extends Component {
             comment: "",
           });
         });
-    } // else
+    }
   } 
   
-  // onComment
+ 
 
   render() {
     return (
@@ -53,7 +53,7 @@ export default class Post extends Component {
           /> ) : (
           <Text>Aún no hay comentarios. Sé el primero en opinar.</Text>
         )}
-        <TextInput
+        <TextInput style={styles.textinput}
           keyboardType="default"
           placeholder="Dejá un comentario"
           multiline={true}
@@ -62,12 +62,12 @@ export default class Post extends Component {
           value={this.state.comment}
         />
         <TouchableOpacity style={styles.btn} onPress={() => this.onComment()}>
-          <Text style={styles.text}>Comentar</Text>
+          <Text style={styles.text}> Comentar </Text>
         </TouchableOpacity>
       </View>
     );
-  } //Render
-} // Post
+  } 
+} 
 
 const styles = StyleSheet.create({
   image: {
@@ -121,4 +121,8 @@ const styles = StyleSheet.create({
   modal: {
     border: "none",
   },
-}); //Styles
+  textinput: {
+    marginTop: 6,
+    textAlign: "center"
+  }
+}); 
