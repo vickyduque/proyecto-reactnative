@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     },
     preview: {
         width: '100%',
-        height: 580
+        height: 450
     },
     text1: {
         color: '#2b74c8',

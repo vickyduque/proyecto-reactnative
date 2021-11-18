@@ -31,8 +31,7 @@ handlePost(){
         this.setState({
             comment: ""   //Para que la descripcion vuelva a estar vacia una vez hecho el posteo. 
         }) 
-        console.log(this.props);
-        this.props.navigation.navigate("Home");  //Queremos navegar a Home automaticamente. 
+        this.props.navigation.navigate("/Home");  //Queremos navegar a Home automaticamente. 
     })
     .catch(error => {
         console.log(error)
