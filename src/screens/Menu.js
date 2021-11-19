@@ -9,18 +9,18 @@ import Home from './Home';
 import { auth } from '../firebase/config';
 import CreatePost from './CreatePost';
 
-export default class Menu extends Component{
-    constructor(props){
+export default class Menu extends Component{ //Cuando se monta el componente...
+    constructor(props){ //Seteamos un estado.
         super(props);
-        this.state = {
+        this.state = { //El estado tiene dos propiedades.
             loggedIn: false,
             error: null,
         }
     }
 
      //Metodo para que recuerde al usuario cada vez que se recarga la pagina
-     componentDidMount(){
-        auth.onAuthStateChanged ( user => {
+     componentDidMount(){ //El componentDidMount se ejecuta en el momento en el que se renderiza menu. 
+        auth.onAuthStateChanged ( user => { //auth sirve para autenticar.
             if (user) {
                 this.setState ({  //Si hay un usuario logueado, queremos que sea true. 
                     loggedIn: true
@@ -32,14 +32,14 @@ export default class Menu extends Component{
     //Funcion de Login. Es una promesa, necesita tener un then y catch
     handleLogin(email, password){
         auth.signInWithEmailAndPassword(email, password)
-        .then( response => {
+        .then( response => { //Si sale todo bien...
             console.log(response);
             alert("Usuario loggeado!");
             this.setState({
                 loggedIn: true
             })
         })
-        .catch( response => {
+        .catch( response => { //Si algo sale mal...
             console.log(response);
             alert("Error en el loggueo");
             this.setState({
@@ -50,11 +50,12 @@ export default class Menu extends Component{
     
     //Funcion de Registro
     handleRegister(email, password, username) {
-        auth.createUserWithEmailAndPassword(email, password) //creamos el usuario
-        .then( response => {
+        auth.createUserWithEmailAndPassword(email, password) //Creamos el usuario con email y password, los dos requisitos.
+        .then( response => { //Una vez que se registró y salió todo bien...
             console.log(response);
             alert("Usuario registrado!"); // Se registra correctamente el usuario.
               response.user.updateProfile({    // Agarrar el username y meterselo al usuario, que se actualice.  
+                 //Con el updateProfile lo que hacemos es agregarle el nombre de usuario al displayName (propiedad propia del user).
                 displayName: username      //username que recibe por parametro desde el componente register.
               })  
             this.setState({

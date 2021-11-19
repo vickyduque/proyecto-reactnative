@@ -10,17 +10,17 @@ export default class Post extends Component {
     constructor(props){
         super(props);
         this.state = {
-            likes: 0,
-            liked: false, //Valor inicial
-            showModal: false  //al principio no se ve.           
+            likes: 0, //Que el numero de likes arranque en 0.
+            liked: false, //Que el like arranque como false.
+            showModal: false  //Estado que sirve para renderizar condicionalmente al modal. False porque al principio no se ve.          
         }
     }
 
 //ACA VA UN COMPONENTDIDMOUNT, QUE PREGUNTA SI ESTA LIKEADO. Si el length es distinto de 0...
 componentDidMount(){
     if (this.props.item){
-        if (this.props.item.data.likes.length !== 0)
-        this.setState ({
+        if (this.props.item.data.likes.length !== 0) //Si numero de likes es distinto a 0.
+        this.setState ({ //Seteamos el numero de likes que tiene.
             likes: this.props.item.data.likes.length
          })
          //si hago log out, y luego logIn el posteo que likee va a aparecer para dislikear. 
@@ -91,13 +91,13 @@ render (){
               <Text style = {styles.texto}> Likes: {this.state.likes} </Text>
 
             {
-               ! this.state.liked ?
+               ! this.state.liked ? //Si no esta likeado que aparezca like.
             
              <TouchableOpacity style = {styles.button} onPress={() => this.functionLike()}>
                  <FontAwesome name='thumbs-up' size={30} color='#fff' />
                  <Text style = {styles.text1}> Like </Text>
              </TouchableOpacity>
-            :
+            : //Si esta likeado que aparezca unlike.
             <TouchableOpacity style = {styles.button} onPress={() => this.onDislike()}>
                  <FontAwesome name='ban' size={30} color='#fff' />
                  <Text style = {styles.text1}> Quitar Like </Text>
