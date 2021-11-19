@@ -12,11 +12,11 @@ export default class Post extends Component {
         this.state = {
             likes: 0, //Que el numero de likes arranque en 0.
             liked: false, //Que el like arranque como false.
-            showModal: false  //Estado que sirve para renderizar condicionalmente al modal. False porque al principio no se ve.          
+            showModal: false  // Renderizar condicionalmente al modal. False porque al principio no se ve.          
         }
     }
 
-//ACA VA UN COMPONENTDIDMOUNT, QUE PREGUNTA SI ESTA LIKEADO. Si el length es distinto de 0...
+
 componentDidMount(){
     if (this.props.item){
         if (this.props.item.data.likes.length !== 0) //Si numero de likes es distinto a 0.

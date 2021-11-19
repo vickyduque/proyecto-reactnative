@@ -65,7 +65,7 @@ export default class Finder extends Component{
 
 const styles = StyleSheet.create({
     field: {
-        backgroundColor: "#d4e5e7",
+        backgroundColor: "#d0dfed",
         borderRadius: 10,
         height: 20,
         width: 220,

@@ -13,15 +13,15 @@ export default class Home extends Component {
         }
     }
 
-    //Aca van los posteos. Va a mostrar todos los posteos actualizados de mi coleccion de post. Seteamos al estado de post, todos los documentos existentes ahi. 
+    //Aca van los posteos. Va a mostrar todos los posteos actualizados de mi coleccion de post. 
     componentDidMount(){
-        db.collection("posts").orderBy("createdAt", "desc").onSnapshot(  //Obtenemos la coleccion de posteo. OnSnapshot detecta todos los cambios del posteo: tiempo real. 
+        db.collection("posts").orderBy("createdAt", "desc").onSnapshot(  //Obtenemos la coleccion de posteo. 
          docs => {      //Devulve una coleccion de docs, que los vamos a pushear a un array auxiliar. 
              let postsAux = [ ]   //Variable auxiliar.
               docs.forEach (doc => {
                   postsAux.push({
                       id: doc.id,  //cada posteo tiene un id determinado. 
-                      data: doc.data()   //toda la data de ese documento: cuando se creo, autor, contenido. Extrae todos los datos de ese documento.
+                      data: doc.data()   //Extrae todos los datos de ese documento.
                   })
                   this.setState({
                       posts: postsAux  //seteamos el estado con la variable auxiliar para que renderice. 

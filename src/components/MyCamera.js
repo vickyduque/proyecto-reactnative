@@ -9,7 +9,7 @@ export default class MyCamera extends React.Component {
         super(props);
         this.camera;
         this.state = {
-           photo: "",  //Al principio es vacios
+           photo: "",  //Al principio es vacio
            permission: false
         }
     }
@@ -38,7 +38,7 @@ export default class MyCamera extends React.Component {
 
 // Metodo para subir la foto
     uploadImage(){
-        fetch(this.state.photo) //tomamos le contenido interno de la foto.
+        fetch(this.state.photo) //tomamos el contenido interno de la foto.
         .then(response => response.blob())
         .then(image => {
             const direction = storage.ref(`camera/${Date.now()}.jpg` )

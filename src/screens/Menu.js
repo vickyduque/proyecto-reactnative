@@ -9,10 +9,10 @@ import Home from './Home';
 import { auth } from '../firebase/config';
 import CreatePost from './CreatePost';
 
-export default class Menu extends Component{ //Cuando se monta el componente...
-    constructor(props){ //Seteamos un estado.
+export default class Menu extends Component{ 
+    constructor(props){ 
         super(props);
-        this.state = { //El estado tiene dos propiedades.
+        this.state = { 
             loggedIn: false,
             error: null,
         }
@@ -54,7 +54,7 @@ export default class Menu extends Component{ //Cuando se monta el componente...
         .then( response => { //Una vez que se registró y salió todo bien...
             console.log(response);
             alert("Usuario registrado!"); // Se registra correctamente el usuario.
-              response.user.updateProfile({    // Agarrar el username y meterselo al usuario, que se actualice.  
+              response.user.updateProfile({    
                  //Con el updateProfile lo que hacemos es agregarle el nombre de usuario al displayName (propiedad propia del user).
                 displayName: username      //username que recibe por parametro desde el componente register.
               })  
@@ -70,7 +70,7 @@ export default class Menu extends Component{ //Cuando se monta el componente...
         })
     }
 
-    //Meotodo para cerrar sesion
+    //Metodo para cerrar sesion
     handleLogout(){
         auth.signOut()
         .then(()=> {

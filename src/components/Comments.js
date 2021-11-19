@@ -50,7 +50,10 @@ export default class Post extends Component {
                 </Text>
               </>
             )}
-          /> ) : (
+          /> 
+          ) 
+          : 
+          (
           <Text>Aún no hay comentarios. Sé el primero en opinar.</Text>
         )}
         <TextInput style={styles.textinput}
