@@ -16,8 +16,9 @@ export default class Home extends Component {
     //Aca van los posteos. Va a mostrar todos los posteos actualizados de mi coleccion de post. 
     componentDidMount(){
         db.collection("posts").orderBy("createdAt", "desc").onSnapshot(  //Obtenemos la coleccion de posteo. 
-         docs => {      //Devulve una coleccion de docs, que los vamos a pushear a un array auxiliar. 
+         docs => {      //Devuelve una coleccion de docs, que los vamos a pushear a un array auxiliar. 
              let postsAux = [ ]   //Variable auxiliar.
+             console.log(docs)
               docs.forEach (doc => {
                   postsAux.push({
                       id: doc.id,  //cada posteo tiene un id determinado. 

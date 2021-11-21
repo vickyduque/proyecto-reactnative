@@ -91,7 +91,7 @@ export default class Menu extends Component{
                     <Drawer.Navigator>
                        {this.state.loggedIn === true ? 
 
-                        <React.Fragment>
+                    <React.Fragment>
                         <Drawer.Screen name = "Inicio">
                             {props => <Home {...props} />}
                         </Drawer.Screen>
@@ -111,9 +111,9 @@ export default class Menu extends Component{
 
                         </Drawer.Screen>
                         
-                        </React.Fragment>
+                    </React.Fragment>
                         : 
-                        <React.Fragment>
+                    <React.Fragment>
 
                             <Drawer.Screen name="Iniciar sesión">
                                 {props => <Login {...props} handleLogin={(email, password)=>this.handleLogin(email, password)}/>}
@@ -123,7 +123,7 @@ export default class Menu extends Component{
                                 {props => <Register {...props} handleRegister={(email, password, username)=>this.handleRegister(email, password, username) } error= {this.state.error} />}
                             </Drawer.Screen>
 
-                        </React.Fragment>
+                    </React.Fragment>
                     }  
                     
                     </Drawer.Navigator>
