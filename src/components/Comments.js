@@ -64,7 +64,7 @@ export default class Post extends Component {
           onChangeText={(text) => this.setState({ comment: text })}
           value={this.state.comment}
         />
-        <TouchableOpacity style={styles.btn} onPress={() => this.onComment()}>
+        <TouchableOpacity style={styles.btn} onPress={() => this.onComment()} disabled={this.state.comment==""?true: false}>
           <Text style={styles.text}> Comentar </Text>
         </TouchableOpacity>
       </View>

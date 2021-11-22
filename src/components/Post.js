@@ -76,6 +76,14 @@ closeModal(){
     })
 }
 
+// Metodo para borrar publicacion
+handleRemove(){
+    db.collection("posts").doc(this.props.item.id).delete().then(() => {
+        console.log("borrado")
+      }).catch((error) => {
+        alert("Error: ", error);
+    });
+  }
 render (){
     console.log(this.props.item)
     //Usamos un if ternario. Si no esta likeado (!), podes likear. Si esta likeado, podes sacar el like. 
@@ -90,7 +98,13 @@ render (){
              <Text style = {styles.texto}> {this.props.item.data.description} </Text>
               <Text style = {styles.texto}>  {this.props.item.data.createdAt}  </Text>
               <Text style = {styles.texto}> Likes: {this.state.likes} </Text>
-
+              {this.props.item.data.owner == auth.currentUser.displayName?(
+                   <TouchableOpacity style={styles.button} onPress={() => this.handleRemove()}>
+                   <FontAwesome name='trash' size={30} color='#fff' />
+                    <Text style={styles.text3}>Borrar post	</Text>
+                </TouchableOpacity>
+              ):null}
+             
             {
                ! this.state.liked ? //Si no esta likeado que aparezca like.
             
@@ -150,7 +164,14 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontFamily: "sans-serif",
         fontWeight:'bold',
-    }, 
+    },
+    text3: {
+        color: '#2b74c8',
+        fontSize: 16,
+        textAlign: 'center',
+        fontFamily: "sans-serif",
+        fontWeight:'bold',
+    },  
     closeModal: {
         color: '#FFA400',
         fontSize: 20,

@@ -34,15 +34,6 @@ export default class Profile extends Component {
       )
   }
 
-// Metodo para borrar publicacion
-handleRemove(item){
-  db.collection("posts").doc(item.id).delete().then(() => {
-      alert('Tu posteo se borrará')
-  }).catch((error) => {
-      alert("Error: ", error);
-  });
-}
-
   render() {
     return (
       <View style={styles.container}>
@@ -60,10 +51,6 @@ handleRemove(item){
           <Post item={item}></Post>
            {/* Borrar posteos */}
 
-        <TouchableOpacity style={styles.button} onPress={() => this.handleRemove(item)}>
-           <FontAwesome name='trash' size={30} color='#fff' />
-            <Text style={styles.text3}>Borrar post	</Text>
-        </TouchableOpacity>
 
 
         </React.Fragment>
