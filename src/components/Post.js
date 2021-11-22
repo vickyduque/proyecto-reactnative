@@ -86,6 +86,7 @@ render (){
               source = {{uri: this.props.item.data.photo }}
              />      
              <Text style = {styles.textbold}> {this.props.item.data.owner}  </Text>
+             <Text style = {styles.texto}> {this.props.item.data.email}  </Text>
              <Text style = {styles.texto}> {this.props.item.data.description} </Text>
               <Text style = {styles.texto}>  {this.props.item.data.createdAt}  </Text>
               <Text style = {styles.texto}> Likes: {this.state.likes} </Text>

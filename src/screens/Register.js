@@ -53,7 +53,7 @@ export default class Register extends Component {
                 null
                 }
          
-                <TouchableOpacity style = {styles.button} onPress={() => this.onRegister()}>
+                <TouchableOpacity disabled = {this.state.email == '' || this.state.password == '' || this.state.username == '' ? true: false} style = {styles.button} onPress={() => this.onRegister()}>
                     <Text style = {styles.text1}> Registrarse </Text>
                 </TouchableOpacity>
             </View>
